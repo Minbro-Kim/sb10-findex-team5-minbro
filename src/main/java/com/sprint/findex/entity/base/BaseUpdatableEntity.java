@@ -1,4 +1,4 @@
-package com.sprint.findex.entity;
+package com.sprint.findex.entity.base;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
@@ -12,6 +12,6 @@ import java.time.Instant;
 public abstract class BaseUpdatableEntity extends BaseEntity {
 
     @LastModifiedDate
-    @Column(name = "updated_at")
+    @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
 }

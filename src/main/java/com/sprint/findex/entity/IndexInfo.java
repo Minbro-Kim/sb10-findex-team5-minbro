@@ -1,11 +1,11 @@
 package com.sprint.findex.entity;
 
+import com.sprint.findex.entity.base.BaseUpdatableEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Getter
 @Entity
@@ -24,18 +24,18 @@ public class IndexInfo extends BaseUpdatableEntity {
     @Column(name = "index_classification", nullable = false)
     private String indexClassification;
 
-    @Column(name = "constituent_count")
-    private Integer constituentCount;
+    @Column(name = "employed_items_count", nullable = false)
+    private Integer employedItemsCount;
 
-    @Column(name = "base_date")
-    private LocalDate baseDate;
+    @Column(name = "base_point_in_time", nullable = false)
+    private LocalDate basePointInTime;
 
-    @Column(name = "base_value")
-    private BigDecimal baseValue;
+    @Column(name = "base_index", nullable = false)
+    private BigDecimal baseIndex;
 
     @Column(name = "source_type", nullable = false)
     private String sourceType;
 
-    @Column(name = "is_favorite", nullable = false)
-    private Boolean isFavorite = false;
+    @Column(name = "favorite", nullable = false)
+    private Boolean favorite = false;
 }

@@ -1,5 +1,6 @@
 package com.sprint.findex.entity;
 
+import com.sprint.findex.entity.base.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -15,20 +16,20 @@ import java.time.LocalDate;
 public class IntegrationTask extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "index_id", nullable = false)
+    @JoinColumn(name = "index_info_id", nullable = false)
     private IndexInfo indexInfo;
 
-    @Column(name = "task_type", nullable = false)
-    private String taskType;
+    @Column(name = "job_type", nullable = false)
+    private String jobType;
 
     @Column(name = "target_date")
     private LocalDate targetDate;
 
-    @Column(name = "operator", nullable = false)
-    private String operator;
+    @Column(name = "worker", nullable = false)
+    private String worker;
 
-    @Column(name = "task_at", nullable = false)
-    private Instant taskAt;
+    @Column(name = "job_time", nullable = false)
+    private Instant jobTime;
 
     @Column(name = "result", nullable = false)
     private String result;
