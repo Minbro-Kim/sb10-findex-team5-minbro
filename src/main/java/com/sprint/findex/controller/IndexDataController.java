@@ -43,14 +43,16 @@ public class IndexDataController {
         .status(HttpStatus.CREATED)
         .body(response);
   }
-    private final IndexDataService indexDataService;
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<IndexDataDto> create(@RequestBody @Valid IndexDataCreateRequest request) {
-        IndexDataDto response = indexDataService.save(request);
+    @PatchMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<IndexDataDto> update(
+            @PathVariable UUID id,
+            @RequestBody @Valid IndexDataUpdateRequest request) {
+        IndexDataDto response = indexDataService.update(id, request);
         return ResponseEntity
-                .status(HttpStatus.CREATED)
+                .status(HttpStatus.OK)
                 .body(response);
+
     }
 }
